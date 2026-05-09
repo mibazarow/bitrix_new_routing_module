@@ -227,8 +227,8 @@ rm -rf /news       # ← удалена
 двухуровневый: `Mibazarow\Bitrixshop`. Подпространства (`Infrastructure\Controller\Web`)
 работают корректно.
 
-Для однословных модулей (например, `myshop`) namespace должен быть одноуровневым
-(`Myshop\ClassName`), иначе автозагрузчик спутает второй сегмент с именем модуля.
+> Однословные модули (без точки, например `myshop`) — только для системных модулей Bitrix.
+> Пользовательские модули всегда делаются с точкой (партнёрский формат).
 
 ### ЧПУ инфоблоков
 
@@ -236,11 +236,15 @@ rm -rf /news       # ← удалена
 через `SEF_URL_TEMPLATES`. Роутинг передаёт управление компоненту, а компонент уже сам
 разбирает SEF-пути. Это два независимых механизма, они не конфликтуют.
 
-### Переименование
+### Переименование модуля под свой проект
 
-- ID модуля: `mibazarow.bitrixshop` → папка `mibazarow.bitrixshop`
-- Namespace: `Mibazarow\Bitrixshop\...` (точка → обратный слеш, первая буква заглавная)
-- Класс установщика: `mibazarow_bitrixshop` (точка → подчёркивание)
+Всегда используйте партнёрский формат (с точкой): `vendor.module`.
+
+- ID модуля: `mycompany.myshop` → папка `mycompany.myshop`
+- Namespace: `Mycompany\Myshop\...` (точка → обратный слеш, первая буква заглавная)
+- Класс установщика: `mycompany_myshop` (точка → подчёркивание)
+
+Однословные ID (без точки) зарезервированы за системными модулями Bitrix.
 
 ---
 
@@ -262,6 +266,6 @@ $url = \Bitrix\Main\Application::getInstance()
 
 ## Полезные ссылки
 
-- [Документация: Роутинг](https://dev.1c-bitrix.ru/docs/articles/main/framework/routing/index.php)
-- [Документация: Контроллеры](https://dev.1c-bitrix.ru/docs/articles/main/framework/controllers/index.php)
-- [Документация: Создание модуля](https://dev.1c-bitrix.ru/docs/articles/main/get-started/create-module/index.php)
+- [Документация: Роутинг](https://docs.1c-bitrix.ru/pages/framework/routing.html)
+- [Документация: Контроллеры](https://docs.1c-bitrix.ru/pages/framework/controllers.html)
+- [Документация: Создание модуля](https://docs.1c-bitrix.ru/pages/get-started/create-module.html)
