@@ -76,7 +76,7 @@ GET /catalog/odezhda/kurtka/
   ↓
 .htaccess → /bitrix/routing_index.php      (единая точка входа)
   ↓
-/bitrix/.settings.php → routing.config     ['web.php', 'catalog.php', 'news.php']
+/bitrix/.settings_extra.php → routing.config  ['web.php', 'catalog.php', 'news.php']
   ↓
 /local/routes/catalog.php                  (правила маршрутизации)
   ↓
@@ -178,7 +178,7 @@ return static function (RoutingConfigurator $routes) {
 };
 ```
 
-**3. Конфиг** → `bitrix/.settings.php`, секция `routing`:
+**3. Конфиг** → `bitrix/.settings_extra.php`, секция `routing`:
 
 ```php
 'config' => ['web.php', 'catalog.php', 'news.php', 'blog.php'],
